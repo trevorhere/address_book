@@ -10,7 +10,7 @@ export const addressBookService = () => {
 
 	test()
 
-	const getAddressBook = () => { return ADDRESS_BOOK }
+	const getAddressBook = () => { return ADDRESS_BOOK.sort((a: any,b: any) => a.last_name > b.last_name) }
 	const setAddressBook = (newAddressBook: any) => {
 		ADDRESS_BOOK = [...newAddressBook]
 	}

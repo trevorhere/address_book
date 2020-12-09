@@ -69,6 +69,7 @@ export class AddressBookComponent implements OnInit {
 
 
   resetFormFields(){
+    this.selectedContactID = null;
     this.formFirstName = "";
     this.formLastName = "";
     this.formAddress1 = "";

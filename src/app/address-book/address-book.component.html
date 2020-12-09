@@ -8,7 +8,9 @@
 <div class="main">
 	<div *ngIf="showAddContactModal">
 		<div class="container">
-			dd Contact Modal
+			<span *ngIf="selectedContactID">Edit</span>
+			<span *ngIf="!selectedContactID">Add</span>
+			Contact Modal
 			{{diagnostic}}
 			<form (ngSubmit)="onSubmit">
 				<div class="form-group">
