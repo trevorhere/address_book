@@ -1,0 +1,121 @@
+<style>
+	.main { 
+		height: 100vh; 
+		width: 100vh; 
+	}
+</style>
+
+<div class="main">
+	<div *ngIf="showAddContactModal">
+		<div class="container">
+			dd Contact Modal
+			{{diagnostic}}
+			<form (ngSubmit)="onSubmit">
+				<div class="form-group">
+				<input 
+					class="form-control"
+					required
+					type="text" 
+					id="formFirstName"
+					name="formFirstName" 
+					placeholder="First Name"
+					[(ngModel)]="formFirstName"
+				/>
+				<input 
+					class="form-control"
+					required
+					type="text" 
+					id="formLastName"
+					name="formLastName" 
+					placeholder="Last Name"
+					[(ngModel)]="formLastName"
+				/>
+				<input 
+					class="form-control"
+					required
+					type="text" 
+					id="formEmail"
+					name="formEmail" 
+					placeholder="Email"
+					[(ngModel)]="formEmail"
+					placeholder="Email"/>
+				<input 
+					class="form-control"
+					required
+					type="text" 
+					id="formPhone"
+					name="formPhone" 
+					placeholder="Phone Number"
+					[(ngModel)]="formPhone"
+					placeholder="Phone"/>
+
+				<input 
+					class="form-control"
+					required
+					type="text" 
+					id="formAddress1"
+					name="formAddress1" 
+					[(ngModel)]="formAddress1"
+					placeholder="Address Line 1"/>
+
+				<input 
+					class="form-control"
+					required
+					type="text" 
+					id="formAddress2"
+					name="formAddress2" 
+					[(ngModel)]="formAddress2"
+					placeholder="Address Line 2"/>
+				<input 
+					class="form-control"
+					required
+					type="text" 
+					id="formCity"
+					name="formCity" 
+					[(ngModel)]="formCity"
+					placeholder="City"/>
+				<input 
+					class="form-control"
+					required
+					type="text" 
+					id="formState"
+					name="formState" 
+					[(ngModel)]="formState"
+					placeholder="State"/>
+
+				<button 
+					type="submit" 
+					class="btn btn-default" 
+					(click)="submitContactInformation()"
+				>Submit</button>
+				</div>
+			</form>
+			<button 
+				(click)="toggleAddContactModal($event)" 
+				type="button">
+					Cancel
+			</button>
+		</div>
+	</div>
+	<h2>My Address Book</h2>
+	<p> {{title}} address-book works!</p>
+	<button (click)="addContact($event)" type="button"> Add Contact</button>
+	<button (click)="addressBookService.seedAddressBook($event)" type="button"> Seed Data</button>
+	<div *ngIf="addressBook">
+		<div *ngFor="let contact of addressBook" >
+
+			<span (click)="onSelect(contact)">
+				{{contact.first_name}} 
+				{{contact.last_name}} 
+				{{contact.phone}} 
+				{{contact.email}} 
+				{{contact.contact_1}} 
+				{{contact.contact_2}} 
+				{{contact.city}} 
+				{{contact.state}} 
+			</span>
+			<button (click)="editContact(contact)" type="button">Edit Contact</button>
+			<button (click)="deleteContact(contact)" type="button">Delete Contact</button>
+		</div>
+	</div>
+</div>
