@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { addressBookService } from '../../services/addressBook' 
+import addressBookTest from '../../services/addressBookTests'
 
 @Component({
   selector: 'app-address-book',
@@ -14,6 +15,7 @@ export class AddressBookComponent implements OnInit {
   addressBook = null;
 
   ngOnInit(): void {
+	  addressBookTest();
 	  this.addressBookService = addressBookService();
 	  this.addressBookService.seedAddressBook();
 	  this.addressBook = this.addressBookService.getAddressBook();
@@ -33,7 +35,6 @@ export class AddressBookComponent implements OnInit {
   onSubmit(){}
 
   submitContactInformation(){ 
-    alert(this.diagnostic)
     this.showAddContactModal = false
 
     if(this.selectedContactID){
@@ -65,11 +66,11 @@ export class AddressBookComponent implements OnInit {
   }
 
   selectedContactID = null;  
-  showAddContactModal = true;
+  showAddContactModal = false;
 
 
   resetFormFields(){
-    this.selectedContactID = null;
+    this.selectedContactID = null
     this.formFirstName = "";
     this.formLastName = "";
     this.formAddress1 = "";
@@ -85,18 +86,15 @@ export class AddressBookComponent implements OnInit {
   }
 
   toggleAddContactModal(event: Event){
-    alert('test')	 
     this.selectedContactID = null
 	  this.showAddContactModal = !this.showAddContactModal;
   }
   
   addContact(event: Event){
 	  this.showAddContactModal = true;
-	  alert('test')
   }
 
   editContact(contact: any){
-    alert('edit hit')
     this.selectedContactID = contact?.id
 	  this.showAddContactModal = true;
 	  this.formFirstName = contact.first_name;
@@ -114,8 +112,12 @@ export class AddressBookComponent implements OnInit {
   deleteContact(contact: any){
 	  this.addressBookService.deleteContactFromAddressBook(contact?.id)
 	  this.addressBook = this.addressBookService.getAddressBook()
+  }
 
-	  alert('delete hit')
+  resetSeedData(){
+	  this.addressBookService.setAddressBook([])
+	  this.addressBookService.seedAddressBook();
+	  this.addressBook = this.addressBookService.getAddressBook();
   }
 
   title = 'test';

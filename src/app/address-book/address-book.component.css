@@ -1,0 +1,44 @@
+.contactContainer {
+  width: 80%;
+  border: solid white 1px;
+  border-radius: 3px;
+  margin: 0 auto;
+}
+
+.addScroll {
+  overflow-y: auto;
+  height: 90%;
+}
+
+.hr {
+  margin: 10px auto;
+  margin-top: 10px;
+}
+
+.borderbottom {
+  border-bottom: solid 1px grey;
+}
+.borderTop {
+  border-top: solid 1px grey;
+}
+
+.addressBook {
+  margin: 0 auto;
+}
+
+.enterContactInfoModal {
+  border: solid white 1px;
+  border-radius: 5px;
+  background-color: #3a3a3a;
+  padding: 30px;
+}
+
+.inputField {
+  width: 100%;
+}
+.contactform {
+  border: solid white 1px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+}

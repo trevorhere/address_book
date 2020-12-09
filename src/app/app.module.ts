@@ -5,16 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddressBookComponent } from './address-book/address-book.component';
-import { CalendarComponent } from './calendar/calendar.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AddressBookComponent,
-    CalendarComponent
+	AppComponent,
+	AddressBookComponent
   ],
   imports: [
-    BrowserModule,
+	BrowserModule,
 	AppRoutingModule,
 	FormsModule
   ],
